@@ -1,3 +1,11 @@
+@import "@fontsource/roboto";
+@import "@fontsource/roboto/300.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.triangles {
+    border-left: 50vw solid #f3f9ff;
+    border-right: 50vw solid #f3f9ff;
+    border-bottom: 5vw solid #fff;
+}
