@@ -24,6 +24,7 @@
     "next": "^13.4.2",
     "next-auth": "^4.22.1",
     "nextjs-cors": "^2.1.2",
+    "prisma": "^4.14.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "1.12.2",
@@ -43,7 +44,6 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
-    "prisma": "^4.14.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.0.4"
   },
