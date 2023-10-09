@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             If you like my work you can donate on{" "}
             <a
-              href="https://www.buymeacoffee.com/domi.zip"
+              href="https://ko-fi.com/domi_zip"
               target="_blank"
               className="inline-flex items-center gap-x-2 text-center text-blue hover:text-blueLight"
             >
@@ -86,7 +86,7 @@ export default function Home() {
                   d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
                 />
               </svg>
-              buymeacoffee.com/domi.zip
+              https://ko-fi.com/domi_zip
             </a>
           </div>
         </div>
