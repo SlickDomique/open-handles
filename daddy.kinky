@@ -1,0 +1,10 @@
+https://meu.site/daddy.kiny
+did=did:plc:fxd5lrhtq5bdpj77jgrdp6aq
+  <VirtualHost *:80>
+    Daddykinky meusite.com
+    ServerAlias www.meusite.com daddykinky.meusite.com
+    DocumentRoot /var/www/meusite
+    <Directory /var/www/meusite>
+        AllowOverride All
+    </Directory>
+</VirtualHost>
