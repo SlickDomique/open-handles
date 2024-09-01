@@ -13,6 +13,7 @@ export default function Select({ value, onChange }: IProps) {
     "woke.cat",
     "lesbian.cat",
     "is-extremely.gay",
+    "test.localhost",
   ];
 
   return (
