@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useState } from "react";
+import { domains } from "~/utils/domains";
 
 interface IProps {
   value: string;
@@ -8,13 +9,7 @@ interface IProps {
 export default function Select({ value, onChange }: IProps) {
   const [expanded, setExpanded] = useState(false);
 
-  const options = [
-    "the-gay.cat",
-    "woke.cat",
-    "lesbian.cat",
-    "is-extremely.gay",
-    "test.localhost",
-  ];
+  const options = Object.keys(domains);
 
   return (
     <>

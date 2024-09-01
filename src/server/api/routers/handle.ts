@@ -14,7 +14,7 @@ export const handleRouter = createTRPCRouter({
     .input(
       z.object({
         handleValue: z.string().regex(regex.handleValueRegex),
-        domainValue: z.string().regex(regex.dnsDidValue),
+        domainValue: z.string().regex(regex.fileDidValue),
         domainName: z.string().regex(regex.getDomainNameRegex()),
       })
     )

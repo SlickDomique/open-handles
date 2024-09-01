@@ -47,8 +47,15 @@ export default function Home() {
             <div>
               {`2. Click "Change handle" and "I have my own domain" in the popup`}
             </div>
-            3. Fill the desired handle with one of the available endings and
-            copy the domain value to a field below
+            <div>3. Click &quot;No DNS Panel&quot;</div>
+            <div>
+              4. Fill the desired handle with one of the available endings and
+              copy the domain value to a field below
+            </div>
+            <div>
+              5. If everything is ok click &quot;Verify Text File&quot; on
+              bsky.app!
+            </div>
           </div>
         </div>
         <div className="container">

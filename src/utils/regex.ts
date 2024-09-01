@@ -11,6 +11,7 @@ const regex = {
     return new RegExp(`^(${domains})$`);
   },
   domain: /^((?!-)[A-Za-z0–9-]{1, 63}(?<!-)\.)+[A-Za-z]{2, 63}$/,
+  fileDidValue: /^[a-zA-Z0-9]{3}:[a-zA-Z0-9]{3}:[a-zA-Z0-9]{24}$/,
   dnsDidValue: /^[a-zA-Z0-9]{3}=[a-zA-Z0-9]{3}:[a-zA-Z0-9]{3}:[a-zA-Z0-9]{24}$/,
   handleValueRegex: /^[a-zA-Z0-9][a-zA-Z0-9.-]+[a-zA-Z0-9]$/,
 };
