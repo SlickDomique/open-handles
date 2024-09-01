@@ -11,7 +11,7 @@ import { getProvider } from "~/utils/provider";
 
 const node_env = process.env.NODE_ENV;
 let rateLimiter: Ratelimit | null = null;
-if (node_env !== "development") {
+if (node_env !== "development" && !env.UPSTASH_DISABLED) {
   rateLimiter = new Ratelimit({
     redis: Redis.fromEnv(),
     limiter: Ratelimit.slidingWindow(50, "15 s"),
