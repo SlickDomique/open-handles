@@ -4,7 +4,6 @@ export enum DomainType {
 }
 
 export const domains: { [domain: string]: DomainType } = {
-  "test.localhost": DomainType.FILE,
   "the-gay.cat": DomainType.FILE,
   "woke.cat": DomainType.FILE,
   "lesbian.cat": DomainType.FILE,
