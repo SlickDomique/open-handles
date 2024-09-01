@@ -1,3 +1,3 @@
 - make components look better and be reusable
-- implement a check if the handle is taken after X minutes, if not free it
 - implement a list of taken handles
+- fix up cloudflare domains just for the future

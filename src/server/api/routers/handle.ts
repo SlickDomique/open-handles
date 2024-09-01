@@ -8,6 +8,7 @@ import regex from "~/utils/regex";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { getProvider } from "~/utils/provider";
+import { getUserProfile } from "~/utils/bsky";
 
 export const handleRouter = createTRPCRouter({
   createNew: publicProcedure
@@ -38,7 +39,44 @@ export const handleRouter = createTRPCRouter({
       }
 
       if (handle) {
-        throw Error("This handle is already taken!");
+        // check the handle owner if it was checked here more than 3 days ago
+        if (handle.updatedAt.getTime() + 1000 * 60 * 60 * 24 * 3 < Date.now()) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          const bskyUser: any = await getUserProfile(
+            `${input.handleValue}.${input.domainName}`
+          );
+
+          if (
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            bskyUser.status === 400 &&
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            bskyUser.json.message === "Profile not found"
+          ) {
+            await prisma.handle.delete({
+              where: {
+                id: handle.id,
+              },
+            });
+          } else {
+            await prisma.handle.update({
+              where: {
+                id: handle.id,
+              },
+              data: {
+                updatedAt: new Date(),
+              },
+            });
+
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            if (bskyUser.json.did === input.domainValue) {
+              throw Error("You already use this handle!");
+            } else {
+              throw Error("This handle is already taken!");
+            }
+          }
+        } else {
+          throw Error("This handle is already taken!");
+        }
       }
 
       const provider = getProvider(input.domainName);
