@@ -39,8 +39,9 @@ export default async function handler(
     res
       .status(200)
       .setHeader("content-type", "text/plain")
+      .setHeader("Cache-Control", "public, max-age=86400")
       .end(`${savedHandle.subdomainValue.replace("did=", "")}`);
   }
 
-  res.status(404);
+  res.status(404).setHeader("Cache-Control", "public, max-age=300");
 }
