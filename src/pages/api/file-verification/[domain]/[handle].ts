@@ -9,11 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  console.log(req.query);
-
   const { domain, handle } = req.query;
-  console.log(domain, handle);
-
   if (
     !domain ||
     !handle ||
@@ -28,10 +24,14 @@ export default async function handler(
   try {
     savedHandle = await prisma.handle.findFirst({
       where: {
-        AND: [{ handle: handle }, { subdomain: domain }],
+        AND: [
+          { handle: { equals: handle, mode: "insensitive" } },
+          { subdomain: { equals: domain, mode: "insensitive" } },
+        ],
       },
     });
   } catch (e) {
+    console.error(e);
     throw Error("Could not connect to the database");
   }
 
