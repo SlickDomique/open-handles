@@ -76,6 +76,16 @@ export default function Home() {
                 github.com/SlickDomique/open-handles
               </a>
             </div>
+            <div>
+              You can follow the author on bsky at{" "}
+              <a
+                className="text-blue hover:text-blueLight"
+                href="https://bsky.app/profile/domi.zip"
+                target="_blank"
+              >
+                bsky.app/profile/domi.zip
+              </a>
+            </div>
             If you like my work you can donate on{" "}
             <a
               href="https://ko-fi.com/domi_zip"

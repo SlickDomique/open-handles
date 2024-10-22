@@ -9,12 +9,17 @@ const PUBLIC_FILE = /\.(.*)$/; // Files
 export async function middleware(req: NextRequest) {
   // Clone the URL
   const url = req.nextUrl.clone();
+  const host = (req.headers.get("host") as string) || "";
+  if (url.pathname.includes("_next") || url.pathname.includes("static")) return;
+  if (
+    !url.pathname.startsWith("/.well-known/atproto-did") &&
+    host.includes(".cat")
+  ) {
+    url.pathname = "/cat";
+    return NextResponse.rewrite(url);
+  }
 
   if (!url.pathname.startsWith("/.well-known/atproto-did")) return;
-  // Skip public files
-  //   if (PUBLIC_FILE.test(url.pathname) || url.pathname.includes("_next")) return;
-
-  const host = req.headers.get("host") || "";
 
   const fileDomains = env.DOMAINS_FILE_VERIFICATION?.split(",");
 

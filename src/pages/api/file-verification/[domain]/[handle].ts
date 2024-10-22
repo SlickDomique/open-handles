@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "~/server/db";
 
@@ -10,6 +11,7 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const { domain, handle } = req.query;
+
   if (
     !domain ||
     !handle ||
