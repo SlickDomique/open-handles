@@ -1,5 +1,4 @@
 export const getUserProfile = async (did: string) => {
-  console.log(did);
   const response = await fetch(
     `https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${did}`
   );

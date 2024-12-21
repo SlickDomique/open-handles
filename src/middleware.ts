@@ -1,4 +1,3 @@
-import { env } from "process";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -21,7 +20,7 @@ export async function middleware(req: NextRequest) {
 
   if (!url.pathname.startsWith("/.well-known/atproto-did")) return;
 
-  const fileDomains = env.DOMAINS_FILE_VERIFICATION?.split(",");
+  const fileDomains = process.env.DOMAINS_FILE_VERIFICATION?.split(",");
 
   try {
     const hostUrl = new URL(`https://${host}`).hostname;
