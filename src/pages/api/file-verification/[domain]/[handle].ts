@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "~/server/db";
 
@@ -9,10 +10,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  console.log(req.query);
-
   const { domain, handle } = req.query;
-  console.log(domain, handle);
 
   if (
     !domain ||
@@ -28,10 +26,14 @@ export default async function handler(
   try {
     savedHandle = await prisma.handle.findFirst({
       where: {
-        AND: [{ handle: handle }, { subdomain: domain }],
+        AND: [
+          { handle: { equals: handle, mode: "insensitive" } },
+          { subdomain: { equals: domain, mode: "insensitive" } },
+        ],
       },
     });
   } catch (e) {
+    console.error(e);
     throw Error("Could not connect to the database");
   }
 
@@ -39,8 +41,13 @@ export default async function handler(
     res
       .status(200)
       .setHeader("content-type", "text/plain")
+      .setHeader("Cache-Control", "public, max-age=86400")
       .end(`${savedHandle.subdomainValue.replace("did=", "")}`);
+    return;
   }
 
-  res.status(404);
+  res
+    .status(404)
+    .setHeader("Cache-Control", "public, max-age=300")
+    .end("Not found");
 }

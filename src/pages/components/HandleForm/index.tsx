@@ -161,7 +161,7 @@ export default function HandleForm() {
                 )}
                 value={domainValue}
                 className="block w-full rounded-md border border-slate-300 bg-white py-2 pl-3 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
-                placeholder="did=did:plc:7bwr7mioqql34n2mrqwqypbz"
+                placeholder="did:plc:7bwr7mioqql34n2mrqwqypbz"
                 type="text"
               />
             </div>

@@ -29,12 +29,13 @@ export const handleRouter = createTRPCRouter({
         handle = await prisma.handle.findFirst({
           where: {
             AND: [
-              { handle: input.handleValue },
-              { subdomain: input.domainName },
+              { handle: { equals: input.handleValue, mode: "insensitive" } },
+              { subdomain: { equals: input.domainName, mode: "insensitive" } },
             ],
           },
         });
       } catch (e) {
+        console.error(e);
         throw Error("Could not connect to the database");
       }
 

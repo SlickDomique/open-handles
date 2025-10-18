@@ -1,6 +1,7 @@
 import Head from "next/head";
 import HandleForm from "./components/HandleForm";
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   const [helpVisible, setHelpVisible] = useState(false);
@@ -75,6 +76,16 @@ export default function Home() {
                 github.com/SlickDomique/open-handles
               </a>
             </div>
+            <div>
+              You can follow the author on bsky at{" "}
+              <a
+                className="text-blue hover:text-blueLight"
+                href="https://bsky.app/profile/domi.zip"
+                target="_blank"
+              >
+                bsky.app/profile/domi.zip
+              </a>
+            </div>
             If you like my work you can donate on{" "}
             <a
               href="https://ko-fi.com/domi_zip"
@@ -97,6 +108,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <Analytics />
       </main>
     </>
   );
