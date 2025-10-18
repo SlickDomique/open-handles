@@ -1,7 +1,6 @@
 import Head from "next/head";
 import HandleForm from "./components/HandleForm";
 import { useState } from "react";
-import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   const [helpVisible, setHelpVisible] = useState(false);
@@ -108,7 +107,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <Analytics />
       </main>
     </>
   );
