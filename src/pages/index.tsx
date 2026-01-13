@@ -70,10 +70,10 @@ export default function Home() {
               Free and open source{" "}
               <a
                 className="text-blue hover:text-blueLight"
-                href="https://github.com/SlickDomique/open-handles"
+                href="https://github.com/SlickDomi/open-handles"
                 target="_blank"
               >
-                github.com/SlickDomique/open-handles
+                github.com/SlickDomi/open-handles
               </a>
             </div>
             <div>
